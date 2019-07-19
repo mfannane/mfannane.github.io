@@ -525,5 +525,6 @@ L.Control.Sidebar = L.Control.extend(/** @lends L.Control.Sidebar.prototype */ {
  * @returns {Sidebar} A new sidebar instance
  */
 L.control.sidebar = function(options, deprecated) {
+    console.log("1");
     return new L.Control.Sidebar(options, deprecated);
 };
