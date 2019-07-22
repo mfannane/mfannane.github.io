@@ -1,126 +1,74 @@
-@import url('https://fonts.googleapis.com/css?family=Merriweather');
-body {
-	padding: 120px;
-	background-color: #0D324D;
-	text-align: center;
-}
+$btn-color: #009CD0;
+$btn-alt-color: salmon;
 .btn {
-	padding: 20px 30px;
-	font-size: 40px;
-	cursor: pointer;
-	position: relative;
-	border: 2px solid white;
-	outline: none;
-	color: white;
-	background-color: transparent;
-	margin: 40px;
-	font-family: 'Merriweather', serif;
-	white-space: nowrap;
-	&--border {
-		&::after,
-		&::before,
-		span::after,
-		span::before {
-			content: "";
-			position: absolute;
-			background-color: white;
-			transition: 0.5s ease;
-		}
-		&::after,
-		&::before {
-			height: 100%;
-			width: 2px;
-			top: -2px;
-		}
-		&::after {
-			left: -2px;
-		}
-		&::before {
-			right: -2px;
-		}
-		span::after,
-		span::before {
-			height: 2px;
-			width: 100%;
-			left: -2px;
-		}
-		span::after {
-			top: -2px;
-		}
-		span::before {
-			bottom: -2px;
-		}
-		&:hover:after {
-			transform: translatex(-12px);
-		}
-		&:hover:before {
-			transform: translatex(12px);
-		}
-		&:hover span::after {
-			transform: translatey(-12px);
-		}
-		&:hover span::before {
-			transform: translatey(12px);
-		}
-	}
-	&--swap {
-		span {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			padding: 20px 30px;
-			font-size: 40px;
-			box-sizing: border-box;
-			opacity: 0;
-			color: black;
-			transition: 0.35s ease;
-		}
-		&::before {
-			content: "";
-			left: 0;
-			top: 0;
-			position: absolute;
-			width: 0;
-			height: 100%;
-			background-color: white;
-			transition: 0.5s ease;
-		}
-		&:hover {
-			&:before {
-				width: 100%;
-			}
-			span {
-				opacity: 1;
-			}
-		}
-	}
-	&--future {
-		&::after, &::before {
-			content: "";
-			position: absolute;
-			border: 2px solid white;
-			width: calc(100% + 15px);
-			height: 60px;
-			transition: 0.5s ease;
-		}
-		&::after {
-			top: -15px;
-			left: -15px;
-			border-right: none;
-			border-bottom: none;
-		}
-		&::before {
-			bottom: -15px;
-			right: -15px;
-			border-left: none;
-			border-top: none;
-		}
-		&:hover:after, &:hover:before {
-			width: calc(100% - 30px);
-			height: 80px;
-		}
-	}
+    border-radius: 4px;
+    border: 2px solid $btn-color;
+    color: $btn-color;
+    display: inline-block;
+    margin: 0 .25em;
+    overflow: hidden;
+    padding: 24px 60px 24px 16px;
+    position: relative;
+    text-decoration: none;
+    line-height: 1;
+    .btn-content {
+        font-size: 1em;
+        line-height: 1.2;
+        padding: 0 26px;
+        position: relative;
+        right: 0;
+        transition: right 300ms ease;
+        display: block;
+        text-align: left;
+    }
+    .icon {
+        border-left: 1px solid $btn-color;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 50%;
+        transition: all 300ms ease;
+        transform: translateY(-50%);
+        width: 58px;
+        height: 70%;
+        i {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: $btn-color;
+        opacity: 0;
+        transition: opacity 300ms ease;
+    }
+    &:hover {
+        .btn-content {
+            right: 100%;
+        }
+        .icon {
+            border-left: 0;
+            font-size: 1.8em;
+            width: 100%;
+        }
+        &:after {
+            opacity: .2;
+        }
+    }
+    &.btn-alt-color {
+        border-color: $btn-alt-color;
+        color: $btn-alt-color;
+        .icon {
+            border-left-color: $btn-alt-color;
+        }
+        &:after {
+            background-color: $btn-alt-color;
+        }
+    }
 }
-
