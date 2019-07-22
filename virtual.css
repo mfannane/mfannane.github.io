@@ -27,7 +27,7 @@ div[class*=container] {
   align-items: center;
 }
 
-.container-1 { background: #333; }
+.container-1 { background: #FFF; }
 .container-2 { background: #4E598C; }
 .container-3 { background: #8499B1; }
 .container-4 { background: #9888A5; }
